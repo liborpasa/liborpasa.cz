@@ -50,32 +50,37 @@ nav{min-height:72px;display:flex;align-items:center;justify-content:space-betwee
   border-radius:999px;text-decoration:none;font-weight:750;
 }
 .btn.dark{background:var(--ink);color:white}
-.hero{padding:72px 0 86px}
-.hero-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:58px;align-items:center}
+.hero{padding:24px 0 86px}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
+.hero-grid>div:first-child{display:contents}
 .kicker{
   text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;
-  color:#7c756c;font-weight:800
+  color:#7c756c;font-weight:800;display:none
 }
 h1{
-  margin:16px 0 26px;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(3.3rem,7vw,6.6rem);
-  line-height:.92;letter-spacing:-.055em;font-weight:600;
+  grid-row:1;grid-column:1;z-index:3;align-self:start;justify-self:start;
+  margin:0;max-width:760px;padding:0;
+  font-family:inherit;
+  font-size:clamp(2.2rem,3.8vw,3.5rem);
+  line-height:1.03;letter-spacing:-.04em;font-weight:800;
 }
 h1 .accent{color:var(--orange)}
-.lead{font-size:clamp(1.15rem,2vw,1.48rem);line-height:1.5;color:#4d4944;max-width:650px}
-.hero-note{margin-top:28px;color:var(--muted);font-size:.96rem}
+.lead{grid-row:3;grid-column:1;font-size:clamp(1.15rem,2vw,1.48rem);line-height:1.5;color:#4d4944;max-width:760px;margin:0}
+.hero-grid>div:first-child>div[style]{grid-row:4;grid-column:1;margin-top:0!important}
+.hero-note{grid-row:5;grid-column:1;margin:0;color:var(--muted);font-size:.96rem}
 .photo{
+  grid-row:2;grid-column:1;
   position:relative;border-radius:30px;overflow:hidden;
-  min-height:640px;background:#d9d4cd;
+  min-height:clamp(540px,70vh,760px);background:#d9d4cd;
   box-shadow:0 28px 80px rgba(58,43,25,.13);
 }
-.photo img{width:100%;height:100%;min-height:640px;object-fit:cover;object-position:56% center;display:block}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08),transparent 38%);pointer-events:none;z-index:1}
+.photo img{width:100%;height:100%;min-height:clamp(540px,70vh,760px);object-fit:cover;object-position:56% center;display:block}
 .photo-card{
   position:absolute;left:24px;right:24px;bottom:24px;
   max-width:520px;background:rgba(255,250,243,.94);
   backdrop-filter:blur(10px);border-radius:20px;padding:19px 22px;
-  box-shadow:0 16px 40px rgba(0,0,0,.10)
+  box-shadow:0 16px 40px rgba(0,0,0,.10);z-index:2
 }
 .photo-card b{font-size:1.12rem;display:block;margin-bottom:3px}
 
@@ -83,26 +88,27 @@ h1 .accent{color:var(--orange)}
 .blue-inner{max-width:900px;margin:auto}
 .blue .eyebrow{font-size:.82rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:#b8c7dd}
 .blue h2{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(3rem,6vw,5.7rem);
-  line-height:1.02;letter-spacing:-.045em;font-weight:600;margin:14px 0 42px
+  font-family:inherit;
+  font-size:clamp(2.4rem,5vw,4.4rem);
+  line-height:1.06;letter-spacing:-.04em;font-weight:800;margin:14px 0 36px
 }
-.blue-copy{font-size:clamp(1.2rem,2.1vw,1.55rem);line-height:1.75;color:#f5f7fb}
-.blue-copy p{margin:0 0 28px}
-.blue-copy p:first-child{font-size:clamp(1.35rem,2.4vw,1.75rem)}
-.blue-copy strong{color:white}
+.blue-copy{font-size:clamp(1.1rem,1.8vw,1.35rem);line-height:1.7;color:#f5f7fb}
+.blue-copy p{margin:0 0 28px;font-size:inherit;line-height:inherit;color:inherit}
+.blue-copy strong{color:white;font-size:inherit;line-height:inherit}
 
 .about{padding:92px 0}
 .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
 .label{text-transform:uppercase;letter-spacing:.13em;font-size:.8rem;font-weight:800;color:#827a70}
 .about h2,.contact h2{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(2.6rem,5vw,4.8rem);
-  line-height:1.03;letter-spacing:-.045em;margin:12px 0 24px
+  font-family:inherit;
+  font-size:clamp(2.2rem,4.2vw,3.7rem);
+  line-height:1.08;letter-spacing:-.04em;font-weight:800;margin:12px 0 24px
 }
-.about-copy{font-size:1.18rem;color:#4f4a44}
-.about-copy p:first-child{font-size:1.5rem;line-height:1.5;color:var(--ink)}
-.about-copy a{color:var(--blue);font-weight:700;text-decoration-thickness:1px;text-underline-offset:3px}
+.about-copy{display:grid;gap:0;color:#4f4a44}
+.experience-item{padding:22px 0;border-top:1px solid var(--line)}
+.experience-item:first-child{padding-top:0;border-top:0}
+.experience-item p{margin:0 0 10px;font-size:1.12rem;line-height:1.65;color:var(--ink);max-width:720px}
+.experience-link{display:inline-flex;color:var(--blue);font-size:1rem;font-weight:750;text-decoration-thickness:1px;text-underline-offset:4px}
 
 .contact{padding:0 0 96px}
 .contact-box{
@@ -119,11 +125,11 @@ footer{padding:24px 0 42px;color:#777068;font-size:.92rem}
 
 @media(max-width:900px){
   .navlinks a:not(.btn){display:none}
-  .hero-grid,.about-grid,.practical-grid{grid-template-columns:1fr}
+  .about-grid,.practical-grid{grid-template-columns:1fr}
   .contact-box{grid-template-columns:180px 1fr}
   .contact-links{grid-column:2}
-  .hero{padding-top:46px}
-  .photo,.photo img{min-height:520px}
+  .hero{padding-top:20px}
+  .photo,.photo img{min-height:560px}
   .blue{padding:72px 0}
   .about-grid,.practical-grid{gap:34px}
 }
@@ -131,9 +137,10 @@ footer{padding:24px 0 42px;color:#777068;font-size:.92rem}
   .wrap{width:min(100% - 24px,1180px)}
   nav{min-height:64px}
   .navlinks .btn{min-height:42px;padding:0 14px}
-  .hero{padding:48px 0 62px}
-  h1{font-size:clamp(3rem,16vw,4.9rem)}
-  .photo,.photo img{min-height:430px}
+  .hero{padding:16px 0 62px}
+  h1{margin:0;padding:0 2px;max-width:100%;font-size:clamp(2rem,9vw,2.55rem);line-height:1.02}
+  .photo,.photo img{min-height:520px}
+  .photo img{object-position:58% center}
   .photo-card{left:14px;right:14px;bottom:14px;padding:16px}
   .blue{padding:64px 0}
   .blue-copy{line-height:1.65}
@@ -146,12 +153,12 @@ footer{padding:24px 0 42px;color:#777068;font-size:.92rem}
 .practical{padding:92px 0;background:var(--cream)}
 .practical-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:70px;align-items:start}
 .practical h2{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(2.6rem,5vw,4.8rem);
-  line-height:1.03;letter-spacing:-.045em;margin:12px 0 24px
+  font-family:inherit;
+  font-size:clamp(2.2rem,4.2vw,3.7rem);
+  line-height:1.08;letter-spacing:-.04em;font-weight:800;margin:12px 0 24px
 }
-.practical-copy{font-size:1.18rem;color:#4f4a44;max-width:760px}
-.practical-copy p:first-child{font-size:1.5rem;line-height:1.5;color:var(--ink)}
+.practical-copy{font-size:1.1rem;line-height:1.65;color:#4f4a44;max-width:760px}
+.practical-copy p{margin:0 0 24px;font-size:inherit;line-height:inherit;color:inherit}
 .practical-points{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
 .practical-point{border-top:1px solid var(--line);padding-top:16px}
 .practical-point b{display:block;margin-bottom:5px}
@@ -170,20 +177,20 @@ footer{padding:24px 0 42px;color:#777068;font-size:.92rem}
 @media(max-width:560px){
   .practical{padding:64px 0}
   .practical h2{
-    font-size:clamp(2.7rem,14vw,4rem);
-    max-width:9ch;
+    font-size:clamp(2.15rem,10vw,2.8rem);
+    max-width:none;
   }
   .practical-copy{font-size:1.06rem}
-  .practical-copy p:first-child{
-    font-size:1.25rem;
-    line-height:1.55;
-  }
   .practical-points{
     grid-template-columns:minmax(0,1fr);
     gap:22px;
     margin-top:34px;
   }
   .practical-point{padding-top:14px}
+  .about-grid{gap:14px}
+  .about h2{font-size:clamp(2.15rem,10vw,2.8rem);margin-bottom:4px}
+  .experience-item{padding:18px 0}
+  .experience-item p{font-size:1.05rem;line-height:1.6}
 }
 
 </style>
@@ -266,7 +273,18 @@ footer{padding:24px 0 42px;color:#777068;font-size:.92rem}
         <h2>Přes třicet let praxe.</h2>
       </div>
       <div class="about-copy">
-        <p>Angličtinu učím přes třicet let – individuálně, ve firmách i formou praktických tematických workshopů (více info najdete na <a href="https://EnglishWorkshops.cz" target="_blank" rel="noopener noreferrer">EnglishWorkshops.cz</a>). Rovněž vedu jednodenní workshop Prezentační dovednosti v angličtině, o němž se více můžete dozvědět na <a href="https://EnglishPresentations.cz" target="_blank" rel="noopener noreferrer">EnglishPresentations.cz</a>. Od roku 2000 jsem spolumajitelem jazykové školy Spring Agency (<a href="https://SpringAgency.cz" target="_blank" rel="noopener noreferrer"><strong>SpringAgency.cz</strong></a>), která se specializuje na jazykovou výuku dospělých.</p>
+        <div class="experience-item">
+          <p>Angličtinu učím přes třicet let – individuálně, ve firmách i formou praktických tematických workshopů.</p>
+          <a class="experience-link" href="https://EnglishWorkshops.cz" target="_blank" rel="noopener noreferrer">EnglishWorkshops.cz</a>
+        </div>
+        <div class="experience-item">
+          <p>Rovněž vedu jednodenní workshop Prezentační dovednosti v angličtině.</p>
+          <a class="experience-link" href="https://EnglishPresentations.cz" target="_blank" rel="noopener noreferrer">EnglishPresentations.cz</a>
+        </div>
+        <div class="experience-item">
+          <p>Od roku 2000 jsem spolumajitelem jazykové školy Spring Agency, která se specializuje na jazykovou výuku dospělých.</p>
+          <a class="experience-link" href="https://SpringAgency.cz" target="_blank" rel="noopener noreferrer">SpringAgency.cz</a>
+        </div>
       </div>
     </div>
   </section>
